@@ -1,11 +1,6 @@
-// ✅ Task 1: Grocery store  Restock 🛒🍎
+// ✅ Task 1: Grocery Store Restock 🛒🍎
 const inventory = ["Apples", "Bread", "Milk", "Eggs"];
-/* No need to redeclare 'inventory' if it already exists. 
-  If you want a better word, you could use 'stock' or 'items' instead of 'inventory'. 
-  For example:
-  const stock = ["Apples", "Bread", "Milk", "Eggs"];
-  Then update the rest of the code to use 'stock' instead of 'inventory'.
-*/
+
 // Add "Oranges" and "Bananas"
 inventory.push("Oranges", "Bananas");
 
@@ -14,6 +9,8 @@ inventory.shift();
 
 // Print updated inventory
 console.log("Updated inventory:", inventory);
+// Output: Updated inventory: [ 'Bread', 'Milk', 'Eggs', 'Oranges', 'Bananas' ]
+
 
 
 // ✅ Task 2: Student Attendance Checker 📚✅
@@ -28,8 +25,9 @@ function isPresent(name) {
 }
 
 // Example usage:
-console.log(isPresent("Ali"));     // "Ali is present."
-console.log(isPresent("Zainab"));  // "Zainab is absent."
+console.log(isPresent("Ali"));     // Output: Ali is present.
+console.log(isPresent("Zainab"));  // Output: Zainab is absent.
+
 
 
 // ✅ Task 3: Top Scorers Leaderboard 🏆⚽
@@ -57,8 +55,16 @@ function printLeaderboard() {
 }
 
 // Example:
-updateScore("Ronaldo", 2);
+updateScore("Ronaldo", 2); // Ronaldo now has 5
 printLeaderboard();
+/*
+Output:
+Leaderboard:
+Messi: 5
+Ronaldo: 5
+Neymar: 4
+*/
+
 
 
 // 🌟 Stretch Task: The Ultimate Treasure Hunt 🗺️💎🏴‍☠️
@@ -104,3 +110,16 @@ function treasureHunt() {
 
 // Run the treasure hunt
 treasureHunt();
+
+/*
+Expected Output:
+Decoded Messages: [ 'Map', 'Compass', 'Key', 'Shovel' ]
+Step 1: Start at the beach
+Step 2: Cross the forest
+Step 3: Climb the mountain
+Step 4: Find the cave
+Step 5: Treasure
+🎉 Congratulations! You found the ultimate treasure!
+*/
+//   }
+//

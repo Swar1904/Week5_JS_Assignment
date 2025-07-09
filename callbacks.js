@@ -1,6 +1,4 @@
-// app.js
-
-// Task 1: Welcome 📨
+// ✅ Task 1: Welcome 📨
 function sendMessage(name, cb) {
   cb(name);
 }
@@ -8,7 +6,8 @@ function welcomeCallback(username) {
   console.log(`\n📨 Welcome, ${username}!\n`);
 }
 
-// Task 2: Temperature Checker 🌡️
+
+// ✅ Task 2: Temperature Checker 🌡️
 function checkTemperature(temp, cb) {
   cb(temp);
 }
@@ -17,7 +16,8 @@ function temperatureCallback(temp) {
   console.log(`${temp}°C is ${status}.`);
 }
 
-// Task 3: Quiz with Randomization & Timer ⏱️
+
+// ✅ Task 3: Quiz with Randomization & Timer ⏱️
 const readline = require('readline');
 
 const rl = readline.createInterface({
@@ -25,7 +25,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// Shuffle questions (Fisher‑Yates) :contentReference[oaicite:6]{index=6}
+// Shuffle function (Fisher‑Yates)
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -45,26 +45,27 @@ function askQuestion(qObj, cb, timeLimit, done) {
   });
 }
 
-function answerCallback(user, correct, done) {
-  if (user.toLowerCase() === correct.toLowerCase()) {
+function answerCallback(userAnswer, correctAnswer, done) {
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
     console.log("✔️ Correct!");
     done(true);
   } else {
-    console.log(`❌ Incorrect. The correct answer is ${correct}.`);
+    console.log(`❌ Incorrect. The correct answer is ${correctAnswer}.`);
     done(false);
   }
 }
 
-// Quiz setup
+// Quiz questions
 const quiz = [
   { question: "What is 5 + 5?", answer: "10" },
   { question: "Capital of France?", answer: "Paris" },
   { question: "Color from blue + yellow?", answer: "Green" }
 ];
+
 shuffle(quiz);
 
 let score = 0, idx = 0;
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 10; // seconds
 
 function next() {
   if (idx >= quiz.length) {
@@ -72,6 +73,7 @@ function next() {
     rl.close();
     return;
   }
+
   askQuestion(quiz[idx], answerCallback, TIME_LIMIT, isCorrect => {
     if (isCorrect) score++;
     idx++;
@@ -79,9 +81,13 @@ function next() {
   });
 }
 
-// Run all tasks
+// ✅ Run all tasks
 sendMessage("Amina", welcomeCallback);
-[35, 22, 10].forEach(t => checkTemperature(t, temperatureCallback));
+
+[35, 22, 10].forEach(temp => {
+  checkTemperature(temp, temperatureCallback);
+});
 
 console.log("\n📝 Starting quiz (10s per question):");
-next()
+next();
+// The quiz will run in the console, and you can answer the questions interactively.
