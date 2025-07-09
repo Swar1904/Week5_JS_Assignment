@@ -22,7 +22,19 @@ const gamerProfile = {
   isOnline: false
 };
 
-updateOnlineStatus(gamerProfile, true);
+function updateOnlineStatus(gamerProfile, status) {
+  gamerProfile.isOnline = status;
+  if (status) {
+    console.log(`${gamerProfile.username} is now online.`);
+  } else {
+    console.log(`${gamerProfile.username} is now offline.`);
+  }
+}
+
+// Example usage:
+updateOnlineStatus(gamerProfile, true); 
+// Output: "ShadowSlayer is now online."
+
 
 Expected Output:
 "ShadowSlayer is now online."
@@ -56,7 +68,18 @@ const dress = {
   inStock: true
 };
 
-checkAvailability(dress);
+function checkAvailability(dress) {
+  if (dress.inStock) {
+    console.log(`${dress.name} is available in size ${dress.size}.`);
+  } else {
+    console.log(`${dress.name} is out of stock.`);
+  }
+}
+
+// Example usage:
+checkAvailability(dress); 
+// Output: "Evening Gown is available in size M."
+
 
 Expected Output:
 "Evening Gown is available in size M."
@@ -94,6 +117,21 @@ const supercar = {
   }
 };
 
+function addFeature(supercar, featureName) {
+  supercar.features[featureName] = true;
+  console.log(`${capitalize(featureName)} has been added to ${supercar.model}.`);
+
+  console.log("Features:");
+  for (const feature in supercar.features) {
+    console.log(`- ${feature}: ${supercar.features[feature]}`);
+  }
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Example usage:
 addFeature(supercar, "turbo");
 
 Expected Output:
